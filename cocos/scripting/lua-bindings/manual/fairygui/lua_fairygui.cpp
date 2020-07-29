@@ -1991,6 +1991,389 @@ static int lua_register_fairygui_GController(lua_State* tolua_S)
 	return 1;
 }
 
+static int lua_fairygui_GObject_get_id(lua_State* L)
+{
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(L,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(L,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(L,"invalid 'cobj' in function 'lua_fairygui_GObject_get_id'", nullptr);
+        return 0;
+    }
+#endif
+
+    tolua_pushstring(L, cobj->id.c_str());
+    return 1;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(L,"#ferror in function 'lua_fairygui_GObject_get_id'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_get_name(lua_State* L)
+{
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(L,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(L,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(L,"invalid 'cobj' in function 'lua_fairygui_GObject_get_name'", nullptr);
+        return 0;
+    }
+#endif
+
+    tolua_pushstring(L, cobj->name.c_str());
+    return 1;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(L,"#ferror in function 'lua_fairygui_GObject_get_name'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_get_sourceSize(lua_State* L)
+{
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(L,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(L,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(L,"invalid 'cobj' in function 'lua_fairygui_GObject_get_sourceSize'", nullptr);
+        return 0;
+    }
+#endif
+
+    size_to_luaval(L, cobj->sourceSize);
+    return 1;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(L,"#ferror in function 'lua_fairygui_GObject_get_sourceSize'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_get_initSize(lua_State* L)
+{
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(L,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(L,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(L,"invalid 'cobj' in function 'lua_fairygui_GObject_get_initSize'", nullptr);
+        return 0;
+    }
+#endif
+
+    size_to_luaval(L, cobj->initSize);
+    return 1;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(L,"#ferror in function 'lua_fairygui_GObject_get_initSize'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_get_minSize(lua_State* L)
+{
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(L,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(L,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(L,"invalid 'cobj' in function 'lua_fairygui_GObject_get_minSize'", nullptr);
+        return 0;
+    }
+#endif
+
+    size_to_luaval(L, cobj->minSize);
+    return 1;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(L,"#ferror in function 'lua_fairygui_GObject_get_minSize'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_get_maxSize(lua_State* L)
+{
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(L,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(L,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(L,"invalid 'cobj' in function 'lua_fairygui_GObject_get_maxSize'", nullptr);
+        return 0;
+    }
+#endif
+
+    size_to_luaval(L, cobj->maxSize);
+    return 1;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(L,"#ferror in function 'lua_fairygui_GObject_get_maxSize'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_getXMin(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_getXMin'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) {
+        lua_pushnumber(tolua_S, cobj->getXMin());
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:getXMin", argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_getXMin'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_setXMin(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_setXMin'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        cobj->setXMin(float(lua_tonumber(tolua_S, 2)));
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:setXMin", argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_setXMin'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_getYMin(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_getYMin'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) {
+        lua_pushnumber(tolua_S, cobj->getYMin());
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:getYMin", argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_getYMin'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_setYMin(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_setYMin'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        cobj->setYMin(float(lua_tonumber(tolua_S, 2)));
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:setYMin", argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_setYMin'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_isPivotAsAnchor(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_isPivotAsAnchor'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) {
+        lua_pushboolean(tolua_S, cobj->isPivotAsAnchor());
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:isPivotAsAnchor", argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_isPivotAsAnchor'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_getProp(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_getProp'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        cocos2d::Value value = cobj->getProp((fairygui::ObjectPropID)lua_tointeger(tolua_S, 2));
+        ccvalue_to_luaval(tolua_S, value);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:getProp", argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_getProp'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GObject_setProp(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GObject* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GObject",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GObject*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GObject_setProp'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 2) {
+        cocos2d::Value value;
+        luaval_to_ccvalue(tolua_S, 3, &value, "fairygui.GObject:setProp");
+        cobj->setProp((fairygui::ObjectPropID)lua_tointeger(tolua_S, 2), value);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GObject:setProp", argc, 2);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GObject_setProp'.",&tolua_err);
+    return 0;
+#endif
+}
+
 static int lua_fairygui_GObject_startDrag(lua_State* tolua_S)
 {
 	int argc = 0;
@@ -4898,6 +5281,21 @@ static int lua_register_fairygui_GObject(lua_State* tolua_S)
 	tolua_cclass(tolua_S,"GObject","fairygui.GObject","fairygui.UIEventDispatcher",nullptr);
 
 	tolua_beginmodule(tolua_S,"GObject");
+    // variable
+    tolua_variable(tolua_S,"id",lua_fairygui_GObject_get_id, nullptr);
+    tolua_variable(tolua_S,"name",lua_fairygui_GObject_get_name, nullptr);
+    tolua_variable(tolua_S,"sourceSize",lua_fairygui_GObject_get_sourceSize, nullptr);
+    tolua_variable(tolua_S,"initSize",lua_fairygui_GObject_get_initSize, nullptr);
+    tolua_variable(tolua_S,"minSize",lua_fairygui_GObject_get_minSize, nullptr);
+    tolua_variable(tolua_S,"maxSize",lua_fairygui_GObject_get_maxSize, nullptr);
+    // function
+    tolua_function(tolua_S,"getXMin",lua_fairygui_GObject_getXMin);
+    tolua_function(tolua_S,"setXMin",lua_fairygui_GObject_setXMin);
+    tolua_function(tolua_S,"getYMin",lua_fairygui_GObject_getYMin);
+    tolua_function(tolua_S,"setYMin",lua_fairygui_GObject_setYMin);
+    tolua_function(tolua_S,"isPivotAsAnchor",lua_fairygui_GObject_isPivotAsAnchor);
+    tolua_function(tolua_S,"getProp",lua_fairygui_GObject_getProp);
+    tolua_function(tolua_S,"setProp",lua_fairygui_GObject_setProp);
 	tolua_function(tolua_S,"startDrag",lua_fairygui_GObject_startDrag);
 	tolua_function(tolua_S,"getPackageItem",lua_fairygui_GObject_getPackageItem);
 	tolua_function(tolua_S,"setGroup",lua_fairygui_GObject_setGroup);
@@ -6571,6 +6969,219 @@ tolua_lerror:
 #endif
 }
 
+static int lua_fairygui_GTextField_getOutlineColor(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GTextField* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GTextField",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GTextField*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GTextField_getOutlineColor'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) {
+        cocos2d::Color3B ret = cobj->getOutlineColor();
+        color3b_to_luaval(tolua_S, ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GTextField:getOutlineColor",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GTextField_getOutlineColor'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GTextField_setOutlineColor(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GTextField* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GTextField",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GTextField*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GTextField_setOutlineColor'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        cocos2d::Color3B arg0;
+        if (luaval_to_color3b(tolua_S, 2, &arg0, "fairygui.GTextField:setOutlineColor")) {
+            cobj->setOutlineColor(arg0);
+            return 0;
+        }
+        tolua_error(tolua_S,"invalid arguments in function 'lua_fairygui_GTextField_setOutlineColor'", nullptr);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GTextField:setOutlineColor",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GTextField_setOutlineColor'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GTextField_getTemplateVars(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GTextField* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GTextField",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GTextField*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GTextField_getTemplateVars'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) {
+        cocos2d::ValueMap *ret = cobj->getTemplateVars();
+        ccvaluemap_to_luaval(tolua_S, *ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GTextField:getTemplateVars",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GTextField_getTemplateVars'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GTextField_setTemplateVars(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GTextField* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GTextField",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GTextField*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GTextField_setTemplateVars'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        cocos2d::ValueMap arg0;
+        if (luaval_to_ccvaluemap(tolua_S, 2, &arg0, "fairygui.GTextField:setTemplateVars")) {
+            cobj->setTemplateVars(&arg0);
+            return 0;
+        }
+        tolua_error(tolua_S,"invalid arguments in function 'lua_fairygui_GTextField_setTemplateVars'", nullptr);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GTextField:setTemplateVars",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GTextField_setTemplateVars'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GTextField_setVar(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok = true;
+    fairygui::GTextField* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GTextField",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GTextField*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GTextField_setVar'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 2) {
+        std::string arg0;
+        cocos2d::Value arg1;
+        ok &= luaval_to_std_string(tolua_S, 2, &arg0, "fairygui.GTextField:setVar");
+        ok &= luaval_to_ccvalue(tolua_S, 3, &arg1, "fairygui.GTextField:setVar");
+        if (ok) {
+            cobj->setVar(arg0, arg1);
+            return 0;
+        }
+        tolua_error(tolua_S,"invalid arguments in function 'lua_fairygui_GTextField_setVar'", nullptr);
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GTextField:setVar",argc, 2);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GTextField_setVar'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GTextField_flushVars(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GTextField* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GTextField",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GTextField*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GTextField_flushVars'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) {
+        cobj->flushVars();
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GTextField:flushVars",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GTextField_flushVars'.",&tolua_err);
+    return 0;
+#endif
+}
+
 static int lua_register_fairygui_GTextField(lua_State* tolua_S)
 {
 	tolua_usertype(tolua_S,"fairygui.GTextField");
@@ -6590,6 +7201,12 @@ static int lua_register_fairygui_GTextField(lua_State* tolua_S)
 	tolua_function(tolua_S,"getTextFormat",lua_fairygui_GTextField_getTextFormat);
 	tolua_function(tolua_S,"isSingleLine",lua_fairygui_GTextField_isSingleLine);
 	tolua_function(tolua_S,"getTextSize",lua_fairygui_GTextField_getTextSize);
+    tolua_function(tolua_S,"getOutlineColor",lua_fairygui_GTextField_getOutlineColor);
+    tolua_function(tolua_S,"setOutlineColor",lua_fairygui_GTextField_setOutlineColor);
+    tolua_function(tolua_S,"getTemplateVars",lua_fairygui_GTextField_getTemplateVars);
+    tolua_function(tolua_S,"setTemplateVars",lua_fairygui_GTextField_setTemplateVars);
+    tolua_function(tolua_S,"setVar",lua_fairygui_GTextField_setVar);
+    tolua_function(tolua_S,"flushVars",lua_fairygui_GTextField_flushVars);
 	tolua_endmodule(tolua_S);
 	std::string typeName = typeid(fairygui::GTextField).name();
 	g_luaType[typeName] = "fairygui.GTextField";
@@ -16286,6 +16903,117 @@ tolua_lerror:
 #endif
 }
 
+static int lua_fairygui_GComboBox_setItems(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GComboBox* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GComboBox",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GComboBox*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GComboBox_setItems'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        std::vector<std::string> strs;
+        if (luaval_to_std_vector_string(tolua_S, 2, &strs, "fairygui.GComboBox:setItems")) {
+            std::vector<std::string>& ret = cobj->getItems();
+            ret.clear();
+            ret.assign(strs.begin(), strs.end());
+        }
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GComboBox:setItems",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GComboBox_setItems'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GComboBox_setIcons(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GComboBox* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GComboBox",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GComboBox*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GComboBox_setIcons'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        std::vector<std::string> strs;
+        if (luaval_to_std_vector_string(tolua_S, 2, &strs, "fairygui.GComboBox:setIcons")) {
+            std::vector<std::string>& ret = cobj->getIcons();
+            ret.clear();
+            ret.assign(strs.begin(), strs.end());
+        }
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GComboBox:setIcons",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GComboBox_setIcons'.",&tolua_err);
+    return 0;
+#endif
+}
+
+static int lua_fairygui_GComboBox_setValues(lua_State* tolua_S)
+{
+    int argc = 0;
+    fairygui::GComboBox* cobj = nullptr;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"fairygui.GComboBox",0,&tolua_err)) goto tolua_lerror;
+#endif
+    cobj = (fairygui::GComboBox*)tolua_tousertype(tolua_S,1,0);
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_fairygui_GComboBox_setValues'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) {
+        std::vector<std::string> strs;
+        if (luaval_to_std_vector_string(tolua_S, 2, &strs, "fairygui.GComboBox:setValues")) {
+            std::vector<std::string>& ret = cobj->getValues();
+            ret.clear();
+            ret.assign(strs.begin(), strs.end());
+        }
+        return 0;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "fairygui.GComboBox:setValues",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_fairygui_GComboBox_setValues'.",&tolua_err);
+    return 0;
+#endif
+}
+
 static int lua_fairygui_GComboBox_create(lua_State* tolua_S)
 {
 	int argc = 0;
@@ -16329,6 +17057,9 @@ static int lua_register_fairygui_GComboBox(lua_State* tolua_S)
 	tolua_function(tolua_S,"getSelectionController",lua_fairygui_GComboBox_getSelectionController);
 	tolua_function(tolua_S,"getValues",lua_fairygui_GComboBox_getValues);
 	tolua_function(tolua_S,"setSelectionController",lua_fairygui_GComboBox_setSelectionController);
+    tolua_function(tolua_S,"setItems",lua_fairygui_GComboBox_setItems);
+    tolua_function(tolua_S,"setIcons",lua_fairygui_GComboBox_setIcons);
+    tolua_function(tolua_S,"setValues",lua_fairygui_GComboBox_setValues);
 	tolua_function(tolua_S,"create", lua_fairygui_GComboBox_create);
 	tolua_endmodule(tolua_S);
 	std::string typeName = typeid(fairygui::GComboBox).name();
@@ -20811,6 +21542,20 @@ static int lua_register_fairygui_FUIInput(lua_State* tolua_S)
     return 1;
 }
 
+// GBasicTextField is extend from GTextField, and UIObjectFactory create this
+static int lua_register_fairygui_GBasicTextField(lua_State* tolua_S)
+{
+    tolua_usertype(tolua_S,"fairygui.GBasicTextField");
+    tolua_cclass(tolua_S,"GBasicTextField","fairygui.GBasicTextField","fairygui.GTextField",nullptr);
+
+    tolua_beginmodule(tolua_S,"GBasicTextField");
+    tolua_endmodule(tolua_S);
+    std::string typeName = typeid(fairygui::GBasicTextField).name();
+    g_luaType[typeName] = "fairygui.GBasicTextField";
+    g_typeCast["GBasicTextField"] = "fairygui.GBasicTextField";
+    return 1;
+}
+
 TOLUA_API int register_fairygui_manual(lua_State* tolua_S)
 {
 	lua_getglobal(tolua_S, "_G");
@@ -20852,6 +21597,7 @@ TOLUA_API int register_fairygui_manual(lua_State* tolua_S)
         lua_register_fairygui_UIConfig(tolua_S);
         lua_register_fairygui_GLabel(tolua_S);
         lua_register_fairygui_FUIInput(tolua_S);
+        lua_register_fairygui_GBasicTextField(tolua_S);
 
 		tolua_endmodule(tolua_S);
 	}
